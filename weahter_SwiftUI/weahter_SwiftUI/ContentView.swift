@@ -61,9 +61,12 @@ struct ContentView: View {
                         .frame(width: 14, height: 13)
                         .aspectRatio(contentMode: .fit)
                     Image("dot")
+                        .renderingMode(.template)
                         .resizable()
                         .frame(width: 9, height: 9)
+                        /// 틴트컬러로 회색으로 변경
                         .aspectRatio(contentMode: .fit)
+                        .foregroundColor(.gray)
                     Spacer()
                     Image("menu")
                         .resizable()
