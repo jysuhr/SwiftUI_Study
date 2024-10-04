@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+enum Tab {
+    case main
+    case map
+    case menu
+}
+
 struct ContentView: View {
     
     @State private var location: String = "Seongnam-si"
@@ -310,48 +316,6 @@ struct ContentView: View {
             }
             .padding(.bottom, 45)
             .scrollIndicators(.hidden)
-            
-            // 하단 탭바 구현
-            VStack {
-                Spacer()
-                Divider()
-                    .background(Color.white)
-                    .padding(.bottom, 8)
-                HStack {
-                    Button(action: {
-                        print("맵 버튼이 눌림")
-                    }) {
-                        Image("mapImg")
-                            .resizable()
-                            .frame(width: 29, height: 27)
-                            .aspectRatio(contentMode: .fit)
-                            .padding(.leading, 20)
-                    }
-                    Spacer()
-                    Image("arrow")
-                        .resizable()
-                        .frame(width: 14, height: 13)
-                        .aspectRatio(contentMode: .fit)
-                    Image("dot")
-                        .renderingMode(.template)
-                        .resizable()
-                        .frame(width: 9, height: 9)
-                        // 틴트컬러로 회색으로 변경
-                        .aspectRatio(contentMode: .fit)
-                        .foregroundStyle(.gray)
-                    Spacer()
-                    Button(action: {
-                        print("메뉴 버튼 눌림")
-                    }) {
-                        Image("menu")
-                            .resizable()
-                            .frame(width: 28, height: 27)
-                            .aspectRatio(contentMode: .fit)
-                            .padding(.trailing, 21)
-                    }
-                }
-            }
-            .frame(maxHeight: .infinity)
         }
     }
 }

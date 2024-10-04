@@ -12,7 +12,7 @@ struct weahter_SwiftUIApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabbarView()
         }
     }
 }
