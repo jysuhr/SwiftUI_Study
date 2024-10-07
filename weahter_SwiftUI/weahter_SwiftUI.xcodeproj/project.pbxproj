@@ -17,6 +17,7 @@
 		A548A1E12C9FDE93005A9DD1 /* weahter_SwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A548A1DF2C9FDE93005A9DD1 /* weahter_SwiftUI.xcdatamodeld */; };
 		A57DC61D2CA7F39000EA9523 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DC61C2CA7F39000EA9523 /* ColorExtension.swift */; };
 		A58BE4C92CAF866700BBB34B /* ForecastRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58BE4C82CAF866700BBB34B /* ForecastRowView.swift */; };
+		A5F3FD572CB3C40700C6BAEC /* TimeForecastRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F3FD562CB3C40700C6BAEC /* TimeForecastRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		A548A1E02C9FDE93005A9DD1 /* weahter_SwiftUI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = weahter_SwiftUI.xcdatamodel; sourceTree = "<group>"; };
 		A57DC61C2CA7F39000EA9523 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		A58BE4C82CAF866700BBB34B /* ForecastRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRowView.swift; sourceTree = "<group>"; };
+		A5F3FD562CB3C40700C6BAEC /* TimeForecastRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeForecastRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			children = (
 				A548A1D42C9FDE91005A9DD1 /* weahter_SwiftUIApp.swift */,
 				A548A1D62C9FDE91005A9DD1 /* ContentView.swift */,
+				A5F3FD562CB3C40700C6BAEC /* TimeForecastRowView.swift */,
 				A58BE4C82CAF866700BBB34B /* ForecastRowView.swift */,
 				A53AE37F2CAF6B560022BC0A /* TabbarView.swift */,
 				A53AE3812CAF6B7C0022BC0A /* MapView.swift */,
@@ -162,6 +165,7 @@
 				A548A1E12C9FDE93005A9DD1 /* weahter_SwiftUI.xcdatamodeld in Sources */,
 				A548A1D52C9FDE91005A9DD1 /* weahter_SwiftUIApp.swift in Sources */,
 				A53AE3802CAF6B560022BC0A /* TabbarView.swift in Sources */,
+				A5F3FD572CB3C40700C6BAEC /* TimeForecastRowView.swift in Sources */,
 				A57DC61D2CA7F39000EA9523 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,10 +16,12 @@ struct Forecast: Identifiable {
     let highTemp : Int
     let gradientColors : [Color]
     let gradientWidth: CGFloat
+    let leadPadding: CGFloat
 }
 
 struct ForecastRowView: View {
     let forecast: Forecast
+    let showDivider: Bool
     
     var body: some View {
         
@@ -63,12 +65,15 @@ struct ForecastRowView: View {
                             .frame(width: 100, height: 4)
                             .cornerRadius(2)
                         
-                        Rectangle()
-                            .fill(LinearGradient(gradient: Gradient(colors: forecast.gradientColors), startPoint: .leading, endPoint: .trailing))
-                            .frame(width: forecast.gradientWidth, height: 4)
-                            .cornerRadius(2)
-                        // 개별 설정 필요
-                            .padding(.leading, 16)
+                        HStack {
+                            Rectangle()
+                                .fill(LinearGradient(gradient: Gradient(colors: forecast.gradientColors), startPoint: .leading, endPoint: .trailing))
+                                .frame(width: forecast.gradientWidth, height: 4)
+                                .cornerRadius(2)
+                            // 개별 설정 필요
+                                .padding(.leading, forecast.leadPadding)
+                            Spacer()
+                        }
                     }
                     .frame(width: 100, height: 4)
                     .padding(.leading, 173)
@@ -86,13 +91,11 @@ struct ForecastRowView: View {
         }
         .frame(width: 335, height: 55)
         
-        Divider()
-            .background(Color.white)
-            .padding(.bottom, 0)
-            .frame(width: 305)
+        if showDivider {
+            Divider()
+                .background(Color.white)
+                .padding(.bottom, 0)
+                .frame(width: 305)
+        }
     }
-}
-
-#Preview {
-    TabbarView()
 }
