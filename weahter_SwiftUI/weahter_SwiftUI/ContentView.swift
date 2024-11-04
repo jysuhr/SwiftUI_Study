@@ -155,7 +155,8 @@ struct ContentView: View {
     }
     
     func fetchWeatherData() {
-        let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=37.681234&lon=126.765394&appid=2c9ce3a48798b73e6a4e81d9462542ce"
+        let appid = Bundle.main.apiKey
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=37.681234&lon=126.765394&appid=\(appid)"
         
         guard let url = URL(string: urlString) else { return }
         
