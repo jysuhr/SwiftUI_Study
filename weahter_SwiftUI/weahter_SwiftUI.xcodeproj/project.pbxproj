@@ -13,8 +13,10 @@
 		A548A1D52C9FDE91005A9DD1 /* weahter_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548A1D42C9FDE91005A9DD1 /* weahter_SwiftUIApp.swift */; };
 		A548A1D72C9FDE91005A9DD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548A1D62C9FDE91005A9DD1 /* ContentView.swift */; };
 		A548A1D92C9FDE93005A9DD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A548A1D82C9FDE93005A9DD1 /* Assets.xcassets */; };
-		A548A1DC2C9FDE93005A9DD1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A548A1DB2C9FDE93005A9DD1 /* Preview Assets.xcassets */; };
 		A548A1E12C9FDE93005A9DD1 /* weahter_SwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A548A1DF2C9FDE93005A9DD1 /* weahter_SwiftUI.xcdatamodeld */; };
+		A553596E2CD9079B00734E38 /* WeatherInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = A553596D2CD9079B00734E38 /* WeatherInfo.plist */; };
+		A55359702CD9082600734E38 /* Weather++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A553596F2CD9082600734E38 /* Weather++Bundle.swift */; };
+		A55FD2212CCE6DE200ECE88E /* WeatherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55FD2202CCE6DE200ECE88E /* WeatherProtocol.swift */; };
 		A57DC61D2CA7F39000EA9523 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DC61C2CA7F39000EA9523 /* ColorExtension.swift */; };
 		A58BE4C92CAF866700BBB34B /* ForecastRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58BE4C82CAF866700BBB34B /* ForecastRowView.swift */; };
 		A5F3FD572CB3C40700C6BAEC /* TimeForecastRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F3FD562CB3C40700C6BAEC /* TimeForecastRowView.swift */; };
@@ -28,8 +30,10 @@
 		A548A1D42C9FDE91005A9DD1 /* weahter_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weahter_SwiftUIApp.swift; sourceTree = "<group>"; };
 		A548A1D62C9FDE91005A9DD1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A548A1D82C9FDE93005A9DD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A548A1DB2C9FDE93005A9DD1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A548A1E02C9FDE93005A9DD1 /* weahter_SwiftUI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = weahter_SwiftUI.xcdatamodel; sourceTree = "<group>"; };
+		A553596D2CD9079B00734E38 /* WeatherInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WeatherInfo.plist; sourceTree = "<group>"; };
+		A553596F2CD9082600734E38 /* Weather++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather++Bundle.swift"; sourceTree = "<group>"; };
+		A55FD2202CCE6DE200ECE88E /* WeatherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherProtocol.swift; sourceTree = "<group>"; };
 		A57DC61C2CA7F39000EA9523 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		A58BE4C82CAF866700BBB34B /* ForecastRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRowView.swift; sourceTree = "<group>"; };
 		A5F3FD562CB3C40700C6BAEC /* TimeForecastRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeForecastRowView.swift; sourceTree = "<group>"; };
@@ -73,19 +77,13 @@
 				A53AE3812CAF6B7C0022BC0A /* MapView.swift */,
 				A53AE3832CAF6B8C0022BC0A /* MenuView.swift */,
 				A57DC61C2CA7F39000EA9523 /* ColorExtension.swift */,
+				A55FD2202CCE6DE200ECE88E /* WeatherProtocol.swift */,
 				A548A1D82C9FDE93005A9DD1 /* Assets.xcassets */,
 				A548A1DF2C9FDE93005A9DD1 /* weahter_SwiftUI.xcdatamodeld */,
-				A548A1DA2C9FDE93005A9DD1 /* Preview Content */,
+				A553596D2CD9079B00734E38 /* WeatherInfo.plist */,
+				A553596F2CD9082600734E38 /* Weather++Bundle.swift */,
 			);
 			path = weahter_SwiftUI;
-			sourceTree = "<group>";
-		};
-		A548A1DA2C9FDE93005A9DD1 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				A548A1DB2C9FDE93005A9DD1 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,8 +144,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A548A1DC2C9FDE93005A9DD1 /* Preview Assets.xcassets in Resources */,
 				A548A1D92C9FDE93005A9DD1 /* Assets.xcassets in Resources */,
+				A553596E2CD9079B00734E38 /* WeatherInfo.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A55FD2212CCE6DE200ECE88E /* WeatherProtocol.swift in Sources */,
 				A53AE3842CAF6B8C0022BC0A /* MenuView.swift in Sources */,
 				A548A1D72C9FDE91005A9DD1 /* ContentView.swift in Sources */,
 				A58BE4C92CAF866700BBB34B /* ForecastRowView.swift in Sources */,
@@ -165,6 +164,7 @@
 				A548A1E12C9FDE93005A9DD1 /* weahter_SwiftUI.xcdatamodeld in Sources */,
 				A548A1D52C9FDE91005A9DD1 /* weahter_SwiftUIApp.swift in Sources */,
 				A53AE3802CAF6B560022BC0A /* TabbarView.swift in Sources */,
+				A55359702CD9082600734E38 /* Weather++Bundle.swift in Sources */,
 				A5F3FD572CB3C40700C6BAEC /* TimeForecastRowView.swift in Sources */,
 				A57DC61D2CA7F39000EA9523 /* ColorExtension.swift in Sources */,
 			);
@@ -299,7 +299,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"weahter_SwiftUI/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = K6C8KF7Z29;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -328,7 +328,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"weahter_SwiftUI/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = K6C8KF7Z29;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

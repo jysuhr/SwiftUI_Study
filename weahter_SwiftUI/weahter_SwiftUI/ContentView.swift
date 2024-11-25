@@ -20,6 +20,7 @@ struct ContentView: View {
     @State private var weather: String = "Partly Cloudy"
     @State private var highest: Int = 29
     @State private var lowest: Int = 15
+    @State private var isLoading: Bool = true
     
     let timeForecasts = [
         TimeForecast(time: "Now", icon: "cloudyIcon", temp: 21),
@@ -48,99 +49,136 @@ struct ContentView: View {
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
             
-            ScrollView {
-                Text(location)
-                    .font(.system(size: 37))
-                    .foregroundStyle(.white)
-                    .padding(.top, 34)
-                
-                HStack {
-                    Text("\(temperature)")
-                        .font(.system(size: 102))
-                        .fontWeight(.thin)
+            if isLoading == true {
+                ProgressView() // 로딩 인디케이터 표시
+                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                    .scaleEffect(2) // 크기 조절
+            } else {
+                ScrollView {
+                    Text(location)
+                        .font(.system(size: 37))
                         .foregroundStyle(.white)
-                    Text("°")
-                        .font(.system(size: 102))
-                        .fontWeight(.thin)
-                        .foregroundStyle(.white)
-                        .offset(x: -8, y: -3)
-                }
-                .offset(x: 20, y: 0)
-            
-                Text(weather)
-                    .font(.system(size: 24))
-                    .foregroundStyle(.white)
-                
-                Text("H:\(highest)°  L:\(lowest)°")
-                    .font(.system(size: 21))
-                    .foregroundStyle(.white)
-                
-                ZStack(alignment: .top) {
-                    Rectangle ()
-                        .fill(Color.black.opacity(0.25))
-                        .frame(width: 335, height: 212)
-                        .cornerRadius(15.0)
-                        .padding(.top, 44)
+                        .padding(.top, 34)
                     
-                    VStack {
-                        Text("Cloudy conditions from 1AM-9AM, with showers expected at 9AM.")
+                    HStack {
+                        Text("\(temperature)")
+                            .font(.system(size: 102))
+                            .fontWeight(.thin)
                             .foregroundStyle(.white)
-                            .font(.system(size: 18))
-                            .multilineTextAlignment(.leading)
-                            .padding(.leading, 36)
-                            .padding(.trailing, 51)
-                            .padding(.top, 44 + 10)
-                        
-                        Divider()
-                            .background(Color.white)
-                            .padding(.bottom, 0)
-                            .frame(width: 335)
+                        Text("°")
+                            .font(.system(size: 102))
+                            .fontWeight(.thin)
+                            .foregroundStyle(.white)
+                            .offset(x: -8, y: -3)
+                    }
+                    .offset(x: 20, y: 0)
                     
-                        ScrollView(.horizontal) {
-                            HStack {
-                                ForEach(timeForecasts) { timeForecast in
-                                    TimeForecastRowView(timeForecast: timeForecast)
+                    Text(weather)
+                        .font(.system(size: 24))
+                        .foregroundStyle(.white)
+                    
+                    Text("H:\(highest)°  L:\(lowest)°")
+                        .font(.system(size: 21))
+                        .foregroundStyle(.white)
+                    
+                    ZStack(alignment: .top) {
+                        Rectangle ()
+                            .fill(Color.black.opacity(0.25))
+                            .frame(width: 335, height: 212)
+                            .cornerRadius(15.0)
+                            .padding(.top, 44)
+                        
+                        VStack {
+                            Text("Cloudy conditions from 1AM-9AM, with showers expected at 9AM.")
+                                .foregroundStyle(.white)
+                                .font(.system(size: 18))
+                                .multilineTextAlignment(.leading)
+                                .padding(.leading, 36)
+                                .padding(.trailing, 51)
+                                .padding(.top, 44 + 10)
+                            
+                            Divider()
+                                .background(Color.white)
+                                .padding(.bottom, 0)
+                                .frame(width: 335)
+                            
+                            ScrollView(.horizontal) {
+                                HStack {
+                                    ForEach(timeForecasts) { timeForecast in
+                                        TimeForecastRowView(timeForecast: timeForecast)
+                                    }
                                 }
                             }
-                        }
-                        .frame(width: 335)
-                        .scrollIndicators(.hidden)
-                    }
-                }
-                
-                ZStack(alignment: .top) {
-                    Rectangle()
-                        .fill(Color.black.opacity(0.25))
-                        .frame(width: 335, height: 680)
-                        .cornerRadius(15.0)
-                        .padding(.top, 8)
-                    
-                    VStack {
-                        HStack {
-                            Image("schduleIcon")
-                                .padding(.leading, 15)
-                            
-                            Text("10-DAY FORECAST")
-                                .foregroundStyle(.white)
-                                .font(.system(size: 15))
-                        }
-                        .frame(width: 335, alignment: .leading)
-                        
-                        Divider()
-                            .background(Color.white)
-                            .padding(.bottom, 0)
                             .frame(width: 335)
-                        
-                        ForEach(forecasts.indices, id: \.self) { index in
-                            ForecastRowView(forecast: forecasts[index], showDivider: index < forecasts.count - 1)
+                            .scrollIndicators(.hidden)
                         }
                     }
-                    .padding(.top, 14 + 8)
+                    
+                    ZStack(alignment: .top) {
+                        Rectangle()
+                            .fill(Color.black.opacity(0.25))
+                            .frame(width: 335, height: 680)
+                            .cornerRadius(15.0)
+                            .padding(.top, 8)
+                        
+                        VStack {
+                            HStack {
+                                Image("schduleIcon")
+                                    .padding(.leading, 15)
+                                
+                                Text("10-DAY FORECAST")
+                                    .foregroundStyle(.white)
+                                    .font(.system(size: 15))
+                            }
+                            .frame(width: 335, alignment: .leading)
+                            
+                            Divider()
+                                .background(Color.white)
+                                .padding(.bottom, 0)
+                                .frame(width: 335)
+                            
+                            ForEach(forecasts.indices, id: \.self) { index in
+                                ForecastRowView(forecast: forecasts[index], showDivider: index < forecasts.count - 1)
+                            }
+                        }
+                        .padding(.top, 14 + 8)
+                    }
                 }
+                .padding(.bottom, 45)
+                .scrollIndicators(.hidden)
             }
-            .padding(.bottom, 45)
-            .scrollIndicators(.hidden)
         }
+        .onAppear {
+            isLoading = true
+            fetchWeatherData()
+        }
+    }
+    
+    func fetchWeatherData() {
+        let appid = Bundle.main.apiKey
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=37.681234&lon=126.765394&appid=\(appid)"
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data = data {
+                do {
+                    let decodedResponse = try JSONDecoder().decode(WeatherResponse.self, from: data)
+                    DispatchQueue.main.async {
+                        self.location = decodedResponse.name
+                        self.temperature = Int(decodedResponse.main.temp - 273.15)
+                        self.weather = decodedResponse.weather.first?.description.capitalized ?? "N/A"
+                        self.highest = Int(decodedResponse.main.temp_max - 273.15)
+                        self.lowest = Int(decodedResponse.main.temp_min - 273.15)
+                        self.isLoading = false
+                    }
+                } catch {
+                    print("Error decoding JSON: \(error)")
+                }
+            } else if let error = error {
+                print("Error fetching weather data: \(error)")
+            }
+        }.resume()
     }
 }
 
